@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.demo1.zhangdemotest.dao.AfleaveDao">
+    <select id="queryAfleave" resultType="com.imooc.demo1.zhangdemotest.entity.Afleave">
+		SELECT afleave_id,counsellor_id,
+		student_id,teacher_id,start_time,end_time,days,reason,state,place
+		FROM tb_afleave
+		ORDER BY afleave_id
+		DESC
+	</select>
+    <select id="queryAfleaveById" resultType="com.imooc.demo1.zhangdemotest.entity.Afleave">
+		SELECT afleave_id,counsellor_id,
+		student_id,teacher_id,start_time,end_time,days,reason,state,place
+		FROM tb_afleave
+		WHERE
+		afleave_id=#{AfleaveId}
+    </select>
+	<select id="queryAfleaveByStudentId" resultType="com.imooc.demo1.zhangdemotest.entity.Afleave">
+		SELECT afleave_id,student_id,start_time,end_time,days,reason,state,place
+		FROM tb_afleave
+		WHERE
+		student_id=#{studentId}
+	</select>
+    <!--<insert id="insertAfleave" useGeneratedKeys="true" keyProperty="AfleaveId"-->
+            <!--keyColumn="AfleaveId" parameterType="com.imooc.demo1.zhangdemotest.entity.Afleave">-->
+		<!--INSERT INTO-->
+		<!--tb_afleave(counsellor_id,student_id,teacher_id,start_time,end_time,days,Reason,State,place)-->
+		<!--VALUES-->
+		<!--(#{CounsellorId},-->
+		<!--#{StudentId},#{TeacherId},#{start_time},#{end_time},#{days},#{Reason},#{State},#{place})-->
+	<!--</insert>-->
+    <!--<update id="updateAfleave" parameterType="com.imooc.demo1.zhangdemotest.entity..Afleave">-->
+        <!--update tb_afleave-->
+        <!--<set>-->
+            <!--<if test="CounsellorId != null">CounsellorId =#{CounsellorId},</if>-->
+            <!--<if test="StudentId != null">StudentId=#{StudentId},</if>-->
+            <!--<if test="TeacherId != null">TeacherId=#{TeacherId}</if>-->
+            <!--<if test="start_time != null">start_time=#{start_time}</if>-->
+            <!--<if test="end_time != null">end_time=#{end_time}</if>-->
+            <!--<if test="days != null">start_time=#{days}</if>-->
+            <!--<if test="Reason != null">start_time=#{Reason}</if>-->
+            <!--<if test="State != null">start_time=#{State}</if>-->
+            <!--<if test="place != null">start_time=#{place}</if>-->
+        <!--</set>-->
+        <!--where AfleaveId=#{AfleaveId}-->
+    <!--</update>-->
+    <!--<delete id="deleteAfleave">-->
+		<!--DELETE FROM-->
+		<!--tb_afleave-->
+		<!--WHERE-->
+		<!--afleave_id=-->
+		<!--#{AfleaveId}-->
+	<!--</delete>-->
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.demo1.zhangdemotest.dao.CounsellorDao">
+    <select id="queryCounsellor" resultType="com.imooc.demo1.zhangdemotest.entity.Counsellor">
+		SELECT *
+		FROM tb_counsellor
+		ORDER BY counsellor_id
+		DESC
+	</select>
+    <select id="queryCounsellorById" resultType="com.imooc.demo1.zhangdemotest.entity.Counsellor">
+		SELECT *
+		FROM tb_counsellor
+		WHERE
+		counsellor_id=#{counsellorId}
+	</select>
+	<select id="queryCounsellorByIdName" resultType="com.imooc.demo1.zhangdemotest.entity.Counsellor">
+		SELECT *
+		FROM tb_counsellor
+		WHERE
+	    counsellor_id=#{ counsellorId} and counsellor_name=#{ counsellorName}
+	</select>
+
+	<!--<select id="queryCounsellorNameById" resultType="com.imooc.demo1.zhangdemotest.entity.Counsellor">-->
+		<!--SELECT Cname-->
+		<!--FROM Counsellor-->
+		<!--WHERE-->
+		<!--CounsellorId=#{CounsellorId}-->
+	<!--</select>-->
+
+    <!--<insert id="insertCounsellor" useGeneratedKeys="true" keyProperty="CounsellorId"-->
+            <!--keyColumn="CounsellorId" parameterType="com.imooc.demo1.zhangdemotest.entity.Counsellor">-->
+		<!--INSERT INTO-->
+		<!--Counsellor(AdminId,Cname,Csex,Cdepartment,Rfgrade,CopenId)-->
+		<!--VALUES-->
+		<!--(#{AdminId},#{Cname},-->
+		<!--#{Csex},#{Cdepartment},#{Rfgrade},#{CopenId})-->
+	<!--</insert>-->
+    <!--<update id="updateCounsellor" parameterType="com.imooc.demo1.zhangdemotest.entity.Counsellor">-->
+        <!--update Counsellor-->
+        <!--<set>-->
+            <!--<if test="AdminId != null">AdminId =#{AdminId},</if>-->
+            <!--<if test="Cname != null">Cname=#{Cname},</if>-->
+            <!--<if test="Csex != null">Csex=#{Csex}</if>-->
+            <!--<if test="Cdepartment != null">Cdepartment=#{Cdepartment}</if>-->
+            <!--<if test="Rfgrade !=null">Rfgrade=#{Rfgrade}</if>-->
+            <!--<if test="CopenId != null">CopenId=#{CopenId}</if>-->
+        <!--</set>-->
+        <!--where CounsellorId=#{CounsellorId}-->
+    <!--</update>-->
+    <!--<delete id="deleteCounsellor">-->
+		<!--DELETE FROM-->
+		<!--Counsellor-->
+		<!--WHERE-->
+		<!--CounsellorId=-->
+		<!--#{CounsellorId}-->
+	<!--</delete>-->
+</mapper>

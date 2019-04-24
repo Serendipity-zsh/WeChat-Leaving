@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.demo1.zhangdemotest.dao.AdminDao">
+    <select id="queryAdmin" resultType="com.imooc.demo1.zhangdemotest.entity.Admin">
+		SELECT admin_id,admin_name,admin_sex,admin_department,admin_openid
+		FROM tb_admin
+		ORDER BY admin_id
+		DESC
+	</select>
+
+	<select id="queryAdminByIdName" resultType="com.imooc.demo1.zhangdemotest.entity.Admin">
+		SELECT *
+		FROM tb_admin
+		WHERE
+		admin_id=#{adminId} and admin_name=#{adminName}
+	</select>
+    <select id="queryAdminById" resultType="com.imooc.demo1.zhangdemotest.entity.Admin">
+		SELECT *
+		FROM tb_admin
+		WHERE
+		admin_id=#{adminId}
+	</select>
+	<!--<select id="queryAdminNameById" resultType="com.wechat.springbootleaving.entity.Admin">-->
+		<!--SELECT Aname-->
+		<!--FROM Admin-->
+		<!--WHERE-->
+		<!--AdminId=#{AdminId}-->
+	<!--</select>-->
+    <!--<insert id="insertAdmin" useGeneratedKeys="true" keyProperty="AdminId"-->
+            <!--keyColumn="AdminId" parameterType="com.wechat.springbootleaving.entity.Admin">-->
+		<!--INSERT INTO-->
+		<!--Admin(Aname,Asex,Adepartment,AopenId)-->
+		<!--VALUES-->
+		<!--(#{Aname},#{Asex},-->
+		<!--#{Adepartment},#{AopenId})-->
+	<!--</insert>-->
+    <!--<update id="updateAdmin" parameterType="com.wechat.springbootleaving.entity.Admin">-->
+        <!--update Admin-->
+        <!--<set>-->
+            <!--<if test="Aname != null">Aname =#{Aname},</if>-->
+            <!--<if test="Asex != null">Asex=#{Asex},</if>-->
+            <!--<if test="Adepartment != null">Adepartment=#{Adepartment}</if>-->
+            <!--<if test="AopenId != null">AopenId=#{AopenId}</if>-->
+        <!--</set>-->
+        <!--where AdminId=#{AdminId}-->
+    <!--</update>-->
+    <!--<delete id="deleteAdmin">-->
+		<!--DELETE FROM-->
+		<!--Admin-->
+		<!--WHERE-->
+		<!--AdminId=-->
+		<!--#{AdminId}-->
+	<!--</delete>-->
+</mapper>

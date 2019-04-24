@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.demo1.zhangdemotest.dao.StudentAfleaveDao">
+    <!--查询请假列表信息-->
+	<select id="queryStudentAfleave" resultType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+		SELECT *
+		FROM tb_student_afleave
+		ORDER BY student_afleave_id
+		DESC
+	</select>
+
+<!--根据请假条ID查询请假信息-->
+	<select id="queryStudentAfleaveById" resultType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+		SELECT *
+		FROM tb_student_afleave
+		WHERE
+		student_afleave_id=#{studentAfleaveId}
+	</select>
+<!--根据学生ID查询请假信息-->
+	<select id="queryStudentAfleaveByStudentId" resultType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+		SELECT student_afleave_id,student_id,student_aname,student_class,student_number,student_afleave_start_time,student_afleave_end_time,student_afleave_days,student_afleave_reason,student_afleave_place,student_afleave_state
+		FROM tb_student_afleave
+		WHERE
+		student_id=#{studentId}
+    </select>
+
+	<!--插入请假条信息-->
+    <insert id="insertStudentAfleave" useGeneratedKeys="true" keyProperty="StudentAfleaveId"
+    keyColumn="StudentAfleaveId" parameterType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+    INSERT INTO
+    tb_student_afleave(student_id,counsellor_id,student_aname,student_class,student_number,student_afleave_start_time,student_afleave_end_time,student_afleave_days,student_afleave_place,student_afleave_reason,student_afleave_state)
+    VALUES
+    (#{studentId},#{counsellorId},#{studentAname},#{studentClass},#{studentNumber},#{studentAfleaveStartTime},#{studnetAfleaveEndTime},#{studnetAfleaveDays},#{studentAfleavePlace},#{studnetAfleaveReason},#{studentAfleaveStata})
+    </insert>
+
+	<!--辅导员更新请假条状态信息-->
+    <update id="updateStudentAfleave" parameterType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+    update tb_student_afleave
+    <set>
+		student_afleave_state=#{studentAfleaveState}
+    </set>
+    WHERE
+    counsellor_id=#{counsellorId}
+    </update>
+
+	<!--&lt;!&ndash;管理员更新请假条状态信息&ndash;&gt;-->
+	<!--<update id="updateStudentAfleave" parameterType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">-->
+		<!--update tb_student_afleave-->
+		<!--<set>-->
+		<!--<if test="studentAfleaveState != null">student_afleave_state=#{studentAfleaveState},</if>-->
+	<!--</set>-->
+		<!--WHERE-->
+		<!--counsellor_id=#{counsellorId}-->
+	<!--</update>-->
+
+    <!--<delete id="deleteAfleave">-->
+    <!--DELETE FROM-->
+    <!--tb_afleave-->
+    <!--WHERE-->
+    <!--afleave_id=-->
+    <!--#{AfleaveId}-->
+    <!--</delete>-->
+</mapper>

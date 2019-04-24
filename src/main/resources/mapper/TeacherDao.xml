@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.demo1.zhangdemotest.dao.TeacherDao">
+    <select id="queryTeacher" resultType="com.imooc.demo1.zhangdemotest.entity.Teacher">
+		SELECT teacher_id,admin_id,
+		teacher_name,teacher_sex,teacher_sex,teacher_openId
+		FROM tb_teacher
+		ORDER BY teacher_id
+		DESC
+	</select>
+
+	<select id="queryTeacherByIdName" resultType="com.imooc.demo1.zhangdemotest.entity.Teacher">
+		SELECT *
+		FROM tb_teacher
+		WHERE
+		teacher_id=#{teacherId} and teacher_name=#{teacherName}
+	</select>
+    <select id="queryTeacherById" resultType="com.imooc.demo1.zhangdemotest.entity.Teacher">
+		SELECT *
+		FROM tb_teacher
+		WHERE
+		teacher_id=#{teacherId}
+	</select>
+
+	<!--<select id="queryTeacherNameById" resultType="com.imooc.demo1.zhangdemotest.entity.Teacher">-->
+		<!--SELECT Tname-->
+		<!--FROM Teacher-->
+		<!--WHERE-->
+		<!--TeacherId=#{TeacherId}-->
+	<!--</select>-->
+    <!--<insert id="insertTeacher" useGeneratedKeys="true" keyProperty="TeacherId"-->
+            <!--keyColumn="TeacherId" parameterType="com.imooc.demo1.zhangdemotest.entity.Student">-->
+		<!--INSERT INTO-->
+		<!--Student(AdminId,Tname,Tsex,Tdepartment,TopenId)-->
+		<!--VALUES-->
+		<!--(#{AdminId},#{Tname},-->
+		<!--#{Tsex},#{Tdepartment},#{TopenId})-->
+	<!--</insert>-->
+    <!--<update id="updateTeacher" parameterType="com.imooc.demo1.zhangdemotest.entity.Teacher">-->
+        <!--update Student-->
+        <!--<set>-->
+            <!--<if test="AdminId != null">AdminId =#{AdminId},</if>-->
+            <!--<if test="Tname != null">Tname=#{Tname},</if>-->
+            <!--<if test="Tsex != null">Tsex=#{Tsex}</if>-->
+            <!--<if test="Tdepartment != null">Tdepartment=#{Tdepartment}</if>-->
+            <!--<if test="TopenId != null">TopenId=#{TopenId}</if>-->
+        <!--</set>-->
+        <!--where TeacherId=#{TeacherId}-->
+    <!--</update>-->
+    <!--<delete id="deleteTeacher">-->
+		<!--DELETE FROM-->
+		<!--Teacher-->
+		<!--WHERE-->
+		<!--TeacherId=-->
+		<!--#{TeacherId}-->
+	<!--</delete>-->
+</mapper>
