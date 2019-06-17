@@ -19,7 +19,7 @@ public class TeacherController {
      * 显示老师列表
      * @return
      */
-    @RequestMapping(value = "/listteacher")
+    @RequestMapping(value = "/listteacher", method = RequestMethod.GET)
     private Map<String, Object> listteacher() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<Teacher> list = new ArrayList<>();

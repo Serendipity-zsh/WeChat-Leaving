@@ -7,6 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.beans.PropertyVetoException;
+/**
+ * 配置datasource到ioc容器里面
+ *
+ *
+ *
+ */
 @Configuration
 // 配置mybatis mapper的扫描路径
 @MapperScan("com.imooc.demo1.zhangdemotest.dao")

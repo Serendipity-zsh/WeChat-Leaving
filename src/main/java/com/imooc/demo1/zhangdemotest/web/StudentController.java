@@ -21,7 +21,7 @@ public class StudentController {
      * 显示学生列表
      * @return
      */
-    @RequestMapping(value = "/liststudent")
+    @RequestMapping(value = "/liststudent", method = RequestMethod.GET)
     private Map<String, Object> liststudent() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<Student> list = new ArrayList<>();
@@ -38,6 +38,7 @@ public class StudentController {
     private Map<String, Object> getStudentById(String studentId) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         Student student=studentService.getStudentById(studentId);
+        System.out.println("studentId:"+studentId);
         modelMap.put("student", student);
         return modelMap;
     }

@@ -5,7 +5,7 @@
 <mapper namespace="com.imooc.demo1.zhangdemotest.dao.TeacherDao">
     <select id="queryTeacher" resultType="com.imooc.demo1.zhangdemotest.entity.Teacher">
 		SELECT teacher_id,admin_id,
-		teacher_name,teacher_sex,teacher_sex,teacher_openId
+		teacher_name,teacher_sex,teacher_sex,teacher_department,teacher_openId
 		FROM tb_teacher
 		ORDER BY teacher_id
 		DESC

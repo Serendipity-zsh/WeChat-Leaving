@@ -11,16 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class StudentAfleaveController {
     @Autowired
     StudentAfleaveService studentAfleaveService;
-
     /**
      * 根据学生ID获取请假信息
      * @param studentId
@@ -37,7 +33,7 @@ public class StudentAfleaveController {
     /**
      * 根据请假条ID获取请假信息
      */
-    @RequestMapping(value = "/getStudentAfleaveById", method = RequestMethod.GET)
+    @RequestMapping(value = "2", method = RequestMethod.GET)
     private Map<String, Object> getStudentAfleaveById(String studentAfleaveId) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         StudentAfleave studentAfleave = studentAfleaveService.getStudentAfleaveById(studentAfleaveId);
@@ -47,7 +43,7 @@ public class StudentAfleaveController {
     /**
      * 获取学生请假条列表
      */
-    @RequestMapping(value = "/listStudentAfleave")
+    @RequestMapping(value = "/listStudentAfleave", method = RequestMethod.GET)
     private Map<String, Object> listAfleave() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<StudentAfleave> list = new ArrayList<>();
@@ -60,11 +56,23 @@ public class StudentAfleaveController {
     /**
      * 添加学生请假条
      */
-    @RequestMapping(value = "addStudentAfleave", method = RequestMethod.POST)
+    @RequestMapping(value = "/addStudentAfleave", method = RequestMethod.POST)
     private Map<String, Object> addStudentAfleave(@RequestBody StudentAfleave studentAfleave)
         throws JsonMappingException, JsonParseException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         modelMap.put("success", studentAfleaveService.addStudentAfleave(studentAfleave));
+        return modelMap;
+    }
+
+    /**
+     * 添加学生请假条
+     */
+    @RequestMapping(value = "/addStudentAfleave1", method = RequestMethod.POST)
+    private Map<String, Object> addStudentAfleave(String studentAfleaveId, String studentId, String counsellorId, String studentAname, String studentClass, String studentNumber, Date studentAfleaveStartTime, Date studentAfleaveEndTime, int studentAfleaveDays, String studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState)
+            throws JsonMappingException, JsonParseException, IOException {
+
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        modelMap.put("success", studentAfleaveService.addStudentAfleave1(studentAfleaveId,studentId, counsellorId,  studentAname,  studentClass,  studentNumber, studentAfleaveStartTime, studentAfleaveEndTime,studentAfleaveDays, studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState));
         return modelMap;
     }
 
@@ -78,5 +86,7 @@ public class StudentAfleaveController {
         modelMap.put("success", studentAfleaveService.modifyStudentAfleave(studentAfleave));
         return modelMap;
     }
+
+
 
 }

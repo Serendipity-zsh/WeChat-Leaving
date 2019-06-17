@@ -16,6 +16,21 @@ public class StudentAfleave {
     private String studentAfleaveReason;
     private String studentAfleaveState;
 
+    public StudentAfleave(String studentAfleaveId, String studentId, String counsellorId, String studentAname, String studentClass, String studentNumber, Date studentAfleaveStartTime, Date studentAfleaveEndTime, int studentAfleaveDays, String studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState) {
+        this.studentAfleaveId = studentAfleaveId;
+        this.studentId = studentId;
+        this.counsellorId = counsellorId;
+        this.studentAname = studentAname;
+        this.studentClass = studentClass;
+        this.studentNumber = studentNumber;
+        this.studentAfleaveStartTime = studentAfleaveStartTime;
+        this.studentAfleaveEndTime = studentAfleaveEndTime;
+        this.studentAfleaveDays = studentAfleaveDays;
+        this.studentAfleavePlace = studentAfleavePlace;
+        this.studentAfleaveReason = studentAfleaveReason;
+        this.studentAfleaveState = studentAfleaveState;
+    }
+
     public String getStudentAfleaveId() {
         return studentAfleaveId;
     }
