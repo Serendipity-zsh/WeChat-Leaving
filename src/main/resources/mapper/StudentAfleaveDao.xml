@@ -20,19 +20,27 @@
 	</select>
 <!--根据学生ID查询请假信息-->
 	<select id="queryStudentAfleaveByStudentId" resultType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
-		SELECT student_afleave_id,student_id,student_aname,student_class,student_number,student_afleave_start_time,student_afleave_end_time,student_afleave_days,student_afleave_reason,student_afleave_place,student_afleave_state
+		SELECT *
 		FROM tb_student_afleave
 		WHERE
 		student_id=#{studentId}
     </select>
 
+	<!--根据学生ID和请假条状态查询请假信息-->
+	<select id="queryStudentAfleaveByStudentIdAndState" resultType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+		SELECT *
+		FROM tb_student_afleave
+		WHERE
+		student_id=#{studentId} and student_afleave_state= "已提交"
+    </select>
+
 	<!--插入请假条信息-->
-    <insert id="insertStudentAfleave" useGeneratedKeys="true" keyProperty="StudentAfleaveId"
-    keyColumn="StudentAfleaveId" parameterType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
+    <insert id="insertStudentAfleave" useGeneratedKeys="true" keyProperty="studentAfleaveId"
+    keyColumn="studentAfleaveId" parameterType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
     INSERT INTO
     tb_student_afleave(student_id,counsellor_id,student_aname,student_class,student_number,student_afleave_start_time,student_afleave_end_time,student_afleave_days,student_afleave_place,student_afleave_reason,student_afleave_state)
     VALUES
-    (#{studentId},#{counsellorId},#{studentAname},#{studentClass},#{studentNumber},#{studentAfleaveStartTime},#{studnetAfleaveEndTime},#{studnetAfleaveDays},#{studentAfleavePlace},#{studnetAfleaveReason},#{studentAfleaveStata})
+    (#{studentId},#{counsellorId},#{studentAname},#{studentClass},#{studentNumber},#{studentAfleaveStartTime},#{studentAfleaveEndTime},#{studentAfleaveDays},#{studentAfleavePlace},#{studentAfleaveReason},#{studentAfleaveState})
     </insert>
 
 	<!--辅导员更新请假条状态信息-->
@@ -42,7 +50,7 @@
 		student_afleave_state=#{studentAfleaveState}
     </set>
     WHERE
-    counsellor_id=#{counsellorId}
+    student_afleave_id=#{studentAfleaveId}
     </update>
 
 	<!--&lt;!&ndash;管理员更新请假条状态信息&ndash;&gt;-->

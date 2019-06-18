@@ -1,5 +1,6 @@
 package com.imooc.demo1.zhangdemotest.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.imooc.demo1.zhangdemotest.entity.Area;
@@ -30,6 +31,8 @@ public interface AreaService {
 	 * @return
 	 */
 	boolean addArea(Area area);
+
+	boolean addArea1(int areaId, String areaName, int priority, Date createTime, Date lastEditTime);
 
 	/**
 	 * 修改区域信息

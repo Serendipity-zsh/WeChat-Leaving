@@ -3,6 +3,8 @@ package com.imooc.demo1.zhangdemotest.service;
 import com.imooc.demo1.zhangdemotest.entity.StudentAfleave;
 
 import java.util.List;
+import java.util.Date;
+import java.util.Map;
 
 public interface StudentAfleaveService {
     /**
@@ -25,6 +27,11 @@ public interface StudentAfleaveService {
     List<StudentAfleave> getStudentAfleaveByStudentId(String studentId);
 
     /**
+     * 根据学生ID获取请假条状态为“已提交”的请假条的信息
+     */
+    List<StudentAfleave> getStudentAfleaveByStudentIdAndState(String studentId);
+
+    /**
      * 增加学生请假条信息
      * @param studentAfleave
      * @return
@@ -44,4 +51,10 @@ public interface StudentAfleaveService {
 //     * @return
 //     */
 //    boolean deleteStudentAfleave(String studentAfleaveId);
+    /**
+     * 增加学生请假条信息1
+     * @return
+     */
+    boolean addStudentAfleave1(int studentAfleaveId, String studentId, String counsellorId, String studentAname, String studentClass, String studentNumber, Date studentAfleaveStartTime, Date studentAfleaveEndTime, int studentAfleaveDays, String studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState);
+
 }

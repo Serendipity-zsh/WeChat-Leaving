@@ -91,4 +91,22 @@ public class AreaServiceImpl implements AreaService {
 			throw new RuntimeException("区域Id不能为空！");
 		}
 	}
+
+	@Transactional
+	@Override
+	public boolean addArea1(int areaId, String areaName, int priority, Date createTime, Date lastEditTime) {
+		Area area = new Area();
+		area.setAreaId(areaId);
+		area.setAreaName(areaName);
+		area.setPriority(priority);
+		area.setCreateTime(createTime);
+		area.setLastEditTime(lastEditTime);
+		int effectedNum = areaDao.insertArea(area);
+		if (effectedNum > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }

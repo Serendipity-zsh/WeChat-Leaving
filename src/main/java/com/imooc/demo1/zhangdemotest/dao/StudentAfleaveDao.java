@@ -4,6 +4,8 @@ import com.imooc.demo1.zhangdemotest.entity.StudentAfleave;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
+
 @Repository
 public interface StudentAfleaveDao {
     /**
@@ -22,6 +24,11 @@ public interface StudentAfleaveDao {
      * 根据学生ID列出具体请假条信息
      */
     List<StudentAfleave> queryStudentAfleaveByStudentId(String studentId);
+
+    /**
+     * 根据学生ID列出具体请假条信息
+     */
+    List<StudentAfleave> queryStudentAfleaveByStudentIdAndState(String studentId);
 
     /**
      * 插入学生请假条信息

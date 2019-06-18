@@ -3,7 +3,7 @@ package com.imooc.demo1.zhangdemotest.entity;
 import java.util.Date;
 
 public class StudentAfleave {
-    private String studentAfleaveId;
+    private int studentAfleaveId;
     private String studentId;
     private String counsellorId;
     private String studentAname;
@@ -16,26 +16,27 @@ public class StudentAfleave {
     private String studentAfleaveReason;
     private String studentAfleaveState;
 
-    public StudentAfleave(String studentAfleaveId, String studentId, String counsellorId, String studentAname, String studentClass, String studentNumber, Date studentAfleaveStartTime, Date studentAfleaveEndTime, int studentAfleaveDays, String studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState) {
-        this.studentAfleaveId = studentAfleaveId;
-        this.studentId = studentId;
-        this.counsellorId = counsellorId;
-        this.studentAname = studentAname;
-        this.studentClass = studentClass;
-        this.studentNumber = studentNumber;
-        this.studentAfleaveStartTime = studentAfleaveStartTime;
-        this.studentAfleaveEndTime = studentAfleaveEndTime;
-        this.studentAfleaveDays = studentAfleaveDays;
-        this.studentAfleavePlace = studentAfleavePlace;
-        this.studentAfleaveReason = studentAfleaveReason;
-        this.studentAfleaveState = studentAfleaveState;
-    }
+//    public StudentAfleave(String studentAfleaveId, String studentId, String counsellorId, String studentAname, String studentClass, String studentNumber, Date studentAfleaveStartTime, Date studentAfleaveEndTime, int studentAfleaveDays, String studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState) {
+//        this.studentAfleaveId = studentAfleaveId;
+//        this.studentId = studentId;
+//        this.counsellorId = counsellorId;
+//        this.studentAname = studentAname;
+//        this.studentClass = studentClass;
+//        this.studentNumber = studentNumber;
+//        this.studentAfleaveStartTime = studentAfleaveStartTime;
+//        this.studentAfleaveEndTime = studentAfleaveEndTime;
+//        this.studentAfleaveDays = studentAfleaveDays;
+//        this.studentAfleavePlace = studentAfleavePlace;
+//        this.studentAfleaveReason = studentAfleaveReason;
+//        this.studentAfleaveState = studentAfleaveState;
+//    }
 
-    public String getStudentAfleaveId() {
+
+    public int getStudentAfleaveId() {
         return studentAfleaveId;
     }
 
-    public void setStudentAfleaveId(String studentAfleaveId) {
+    public void setStudentAfleaveId(int studentAfleaveId) {
         this.studentAfleaveId = studentAfleaveId;
     }
 
@@ -126,5 +127,4 @@ public class StudentAfleave {
     public void setStudentAfleaveState(String studentAfleaveState) {
         this.studentAfleaveState = studentAfleaveState;
     }
-
 }

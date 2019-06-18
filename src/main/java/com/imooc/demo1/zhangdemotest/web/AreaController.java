@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 
 @RestController
-@RequestMapping("/superadmin")
+//@RequestMapping("/superadmin")
 public class AreaController {
 	@Autowired
 	private AreaService areaService;
@@ -73,7 +73,7 @@ public class AreaController {
 	 * @throws JsonMappingException
 	 * @throws JsonParseException
 	 */
-	@RequestMapping(value = "/addarea", method = RequestMethod.POST)
+	@RequestMapping(value = "/addarea", method = RequestMethod.GET)
 	private Map<String, Object> addArea(@RequestBody Area area)
 			throws JsonParseException, JsonMappingException, IOException {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
