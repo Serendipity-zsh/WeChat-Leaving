@@ -26,7 +26,7 @@
 		student_id=#{studentId}
     </select>
 
-	<!--根据学生ID和请假条状态查询请假信息-->
+	<!--根据学生ID和请假条状态为“已提交”查询请假信息-->
 	<select id="queryStudentAfleaveByStudentIdAndState" resultType="com.imooc.demo1.zhangdemotest.entity.StudentAfleave">
 		SELECT *
 		FROM tb_student_afleave

@@ -26,7 +26,7 @@ public interface StudentAfleaveDao {
     List<StudentAfleave> queryStudentAfleaveByStudentId(String studentId);
 
     /**
-     * 根据学生ID列出具体请假条信息
+     * 根据学生ID列出具体请假条状态为“已提交”请假条信息
      */
     List<StudentAfleave> queryStudentAfleaveByStudentIdAndState(String studentId);
 

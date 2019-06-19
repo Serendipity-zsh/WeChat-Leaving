@@ -79,17 +79,7 @@ public class StudentAfleaveController {
         return modelMap;
     }
 
-//    /**
-//     * 添加学生请假条
-//     */
-//    @RequestMapping(value = "/addStudentAfleave1", method = RequestMethod.POST)
-//    private Map<String, Object> addStudentAfleave(String studentAfleaveId, String studentId, String counsellorId, String studentAname, String studentClass, String studentNumber, Date studentAfleaveStartTime, Date studentAfleaveEndTime, int studentAfleaveDays, String studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState)
-//            throws JsonMappingException, JsonParseException, IOException {
-//
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        modelMap.put("success", studentAfleaveService.addStudentAfleave1(studentAfleaveId,studentId, counsellorId,  studentAname,  studentClass,  studentNumber, studentAfleaveStartTime, studentAfleaveEndTime,studentAfleaveDays, studentAfleavePlace, String studentAfleaveReason, String studentAfleaveState));
-//        return modelMap;
-//    }
+
     /**
      * 添加学生请假条
      */
@@ -113,17 +103,17 @@ public class StudentAfleaveController {
         modelMap.put("success", studentAfleaveService.modifyStudentAfleave(studentAfleave));
         return modelMap;
     }
-//    /**
-//     * 更新学生请假条状态信息
-//     */
-//    @RequestMapping(value = "/modifyStudnetAfleave1", method = RequestMethod.POST)
-//    private Map<String, Object> modifyStudnetAfleave1(int studentAfleaveId,String studentAfleaveState)
-//            throws JsonMappingException, JsonParseException, IOException {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        modelMap.put("success", studentAfleaveService.modifyStudentAfleave(studentAfleave));
-//        return modelMap;
-    //}
+    /**
+     * 更新学生请假条状态信息(根据请假条ID,修改state）
+     */
+    @RequestMapping(value = "/modifyStudnetAfleave1", method = RequestMethod.POST)
+    private Map<String, Object> modifyStudnetAfleave1(int studentAfleaveId,String studentAfleaveState)
+            throws JsonMappingException, JsonParseException, IOException {
 
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        modelMap.put("success", studentAfleaveService.modifyStudentAfleave1(studentAfleaveId,studentAfleaveState));
+        return modelMap;
+    }
 
 
 }

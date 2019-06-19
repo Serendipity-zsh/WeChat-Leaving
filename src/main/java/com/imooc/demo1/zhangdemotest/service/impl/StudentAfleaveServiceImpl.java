@@ -90,6 +90,30 @@ public class StudentAfleaveServiceImpl implements StudentAfleaveService {
         }
     }
 
+    @Transactional
+    @Override
+    //更新学生请假表
+    public boolean modifyStudentAfleave1(int studentAfleaveId,String studentAfleaveState) {
+        StudentAfleave studentAfleave=new StudentAfleave();
+        studentAfleave.setStudentAfleaveId(studentAfleaveId);
+        studentAfleave.setStudentAfleaveState(studentAfleaveState);
+
+        if (!studentAfleave.getStudentAfleaveState().isEmpty()) {
+            try {
+                int effectedNum = studentAfleaveDao.updateStudentAfleave(studentAfleave);
+                if (effectedNum > 0) {
+                    return true;
+                } else {
+                    throw new RuntimeException("更新学生请假条状态失败！");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("更新学生请假条状态失败：" + e.toString());
+            }
+        } else {
+            throw new RuntimeException("学生请假条状态不能为空！");
+        }
+    }
+
 
     @Transactional
     @Override

@@ -44,6 +44,14 @@ public interface StudentAfleaveService {
      * @return
      */
     boolean modifyStudentAfleave(StudentAfleave studentAfleave);
+
+    /**
+     *修改请假条信息
+     * @param studentAfleaveId
+     * @param studentAfleaveState
+     * @return
+     */
+    boolean modifyStudentAfleave1(int studentAfleaveId,String studentAfleaveState);
 //
 //    /**
 //     * 删除请假条信息

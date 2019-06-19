@@ -40,11 +40,15 @@ public class WXLoginController {
      */
     @RequestMapping("/login")
     private Map<String, Object> getlogin(String id,String name) {
+        System.out.println("登陆");
+        System.out.println("id: "+id);
+        System.out.println("name: "+name);
         int flag = 0;
         boolean flag1 = studentService.login1(id,name);
         boolean flag2 = teacherService.login2(id, name);
         boolean flag3 = counsellorService.login3(id, name);
         boolean flag4 = adminService.login4(id, name);
+
         Map<String, Object> modelMap = new HashMap<String, Object>();
         if (flag1) {
             flag=1;
