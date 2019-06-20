@@ -38,7 +38,7 @@ public class StudentController {
     private Map<String, Object> getStudentById(String studentId) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         Student student=studentService.getStudentById(studentId);
-        System.out.println("获取学生信息："+studentId);
+        System.out.println("获取学生信息: "+studentId);
         modelMap.put("student", student);
         return modelMap;
     }
